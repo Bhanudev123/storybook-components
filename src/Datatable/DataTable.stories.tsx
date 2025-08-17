@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import {DataTable} from './DataTable'
+import type { Column } from "./DataTable";   // 👈 add this
 
 interface User {
   id: number;
@@ -13,10 +14,11 @@ const data: User[] = [
   { id: 3, name: "Charlie", email: "charlie@mail.com" },
 ];
 
-const columns = [
-  { key: "name", header: "Name" },
-  { key: "email", header: "Email" },
-];
+const columns: Column<User>[] = [
+    { key: "name", header: "Name" },
+    { key: "email", header: "Email" },
+  ];
+  
 
 const meta: Meta<typeof DataTable<User>> = {
   title: "Components/DataTable",
